@@ -10,13 +10,17 @@ completed = { 0: "...", 1: 'finish'}
 def convert_completed_field( num_completed_field ):
     return completed[num_completed_field]
 
+todos = [ 5, 4, 3, 2, 1 ]
 
 # bubble sort the todos
 def bubble_sort( todos ):
-    for i in range( len(todos) - 1):
-        if priorities[ todos[i][2] ] > priorities[ todos[i + 1][2] ]:
-            todos[i], todos[i + 1] = todos[i + 1], todos[i]
+    n = len(todos)
+    for i in range(n - 1, -1, -1):
+        for j in range(0, i):
+            if convert_completed_field(todos[j][2]) > convert_completed_field(todos[j + 1][2]):
+                    todos[j], todos[j + 1] = todos[j + 1], todos[j]
     return todos
+
 
 # show all todos
 def print_todos( todos ):
@@ -51,9 +55,9 @@ def new_print_todos( todos ):
 def take_todo():
     todo = {}
 
-    title = input("title: ")
-    priority = input("priority: [low, medium, high]: ")
-    due_date = input("due-date: ")
+    title = input("title: ").strip()
+    priority = input("priority: [low, medium, high]: ").strip()
+    due_date = input("due-date: ").strip()
 
     todo["title"] = title
     todo["priority"] = priority
@@ -77,15 +81,15 @@ def take_update_info():
 
     choice = input("Do you want to change title??  y or n: ")
     if( choice == 'y' or choice == 'Y' ):
-        title = input("New title: ")
+        title = input("New title: ").strip()
     
     choice = input("Do you want to change priority?? y or n: ")
     if( choice == 'y' or choice == 'Y'):
-        priority = input("New priority: ")
+        priority = input("New priority: ").strip()
     
     choice = input("Do you want to change due-date?? y or n: ")
     if( choice == 'y' or choice == 'Y'):
-        due_date = input("New due-date: ")
+        due_date = input("New due-date: ").strip()
 
     choice = input("Do you want to change completed?? y or n: ")
     if( choice == 'y' or choice == 'Y'):
