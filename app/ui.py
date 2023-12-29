@@ -17,7 +17,7 @@ def bubble_sort( todos ):
     n = len(todos)
     for i in range(n - 1, -1, -1):
         for j in range(0, i):
-            if convert_completed_field(todos[j][2]) > convert_completed_field(todos[j + 1][2]):
+            if priorities[todos[j][2]] > priorities[todos[j + 1][2]]:
                     todos[j], todos[j + 1] = todos[j + 1], todos[j]
     return todos
 
