@@ -1,5 +1,6 @@
-from ui import print_todos, take_todo, take_delete_id, take_update_info, bubble_sort
+from ui import print_todos, take_todo, take_delete_id, take_update_info, bubble_sort, new_print_todos
 from mysql import get_all_todos, add_todo, delete_todo, update_title, update_priority, update_due_date, update_completed
+
 
 
 # handlers
@@ -9,7 +10,8 @@ def show_handler():
     todos = get_all_todos()
 
     todos = bubble_sort( todos )
-    print_todos( todos )
+    # print_todos( todos )
+    new_print_todos( todos )
 
 
 # add command arg handler

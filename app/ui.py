@@ -1,5 +1,15 @@
+from colorama import Fore , Style
+
 # giving priorities a number to be able to sort them
 priorities = { "high": 0, "medium": 1, "low": 2 }
+
+# info about what values in completed field means
+completed = { 0: "...", 1: 'finish'}
+
+# convert the completed value from db into on-going or finished
+def convert_completed_field( num_completed_field ):
+    return completed[num_completed_field]
+
 
 # bubble sort the todos
 def bubble_sort( todos ):
@@ -19,8 +29,22 @@ def print_todos( todos ):
                 else:
                     print("ongoing", end='\t')
                 continue
+            if i == 2:
+                print( f"{Fore.YELLOW} {todo[i]} {Style.RESET_ALL}", end='\t')
+                continue
             print( todo[i], end="\t")
         print()
+
+# more prettier way of print_todos()
+def new_print_todos( todos ):
+
+    print( f"{'id':<5} {'title':<20} {'priority':<10} {'due-date':<10} {'completed':<10}" )
+    for i in range( len(todos) ):
+        
+        todo = f"{todos[i][0]:<5} {todos[i][1]:<20} {Fore.GREEN} {todos[i][2]:<10} {Style.RESET_ALL} {todos[i][3]:<10} {convert_completed_field(todos[i][4]):<10}"
+
+        print( todo )
+
 
 
 # take todo details from user
