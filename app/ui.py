@@ -1,4 +1,13 @@
 from colorama import Fore , Style
+from rich.console import Console
+
+# console = Console()
+
+# # Create a rich console
+# # console = Console()
+
+# console.print("hello, world", style="strikethrough")
+# console.print("this is [yellow]just[/] some text")
 
 # giving priorities a number to be able to sort them
 priorities = { "high": 0, "medium": 1, "low": 2 }
@@ -55,9 +64,9 @@ def new_print_todos( todos ):
 def take_todo():
     todo = {}
 
-    title = input("title: ").strip()
-    priority = input("priority: [low, medium, high]: ").strip()
-    due_date = input("due-date: ").strip()
+    title = input("enter title: ").strip()
+    priority = input("enter priority: [ low, medium, high ]: ").strip()
+    due_date = input("enter due-date: ").strip()
 
     todo["title"] = title
     todo["priority"] = priority
@@ -79,21 +88,21 @@ def take_update_info():
     
     title, priority, due_date, completed = None, None, None, None
 
-    choice = input("Do you want to change title??  y or n: ")
+    choice = input("Do you want to change title??  [ y, n ]: ")
     if( choice == 'y' or choice == 'Y' ):
-        title = input("New title: ").strip()
+        title = input("enter new title: ").strip()
     
-    choice = input("Do you want to change priority?? y or n: ")
+    choice = input("\nDo you want to change priority?? [ y, n ]: ")
     if( choice == 'y' or choice == 'Y'):
-        priority = input("New priority: ").strip()
+        priority = input("enter new priority: [ high, medium, low ]: ").strip()
     
-    choice = input("Do you want to change due-date?? y or n: ")
+    choice = input("\nDo you want to change due-date?? [ y, n ]: ")
     if( choice == 'y' or choice == 'Y'):
-        due_date = input("New due-date: ").strip()
+        due_date = input("enter new due-date: ").strip()
 
-    choice = input("Do you want to change completed?? y or n: ")
+    choice = input("\nDo you want to change completed?? [ y, n ]: ")
     if( choice == 'y' or choice == 'Y'):
-        completed = int(input("New completed:[0 - ongoing, 1 - finished] "))
+        completed = int(input("enter new completed:[ 0 - ongoing, 1 - finished ]: "))
 
     todo = { 
         "title": title,

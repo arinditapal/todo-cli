@@ -1,5 +1,5 @@
 from ui import print_todos, take_todo, take_delete_id, take_update_info, bubble_sort, new_print_todos
-from mysql import get_all_todos, add_todo, delete_todo, update_title, update_priority, update_due_date, update_completed
+from model import get_all_todos, add_todo, delete_todo, update_title, update_priority, update_due_date, update_completed
 
 
 
@@ -10,6 +10,7 @@ def show_handler():
     todos = get_all_todos()
 
     todos = bubble_sort( todos )
+    # print(todos)
     # print_todos( todos )
     new_print_todos( todos )
 
@@ -37,6 +38,7 @@ def update_handler():
         update_title( id, todo["title"] )
     
     if( todo["priority"] ):
+        print("updating priority...")
         update_priority( id, todo["priority"] )
     
     if( todo["due_date"] ):
