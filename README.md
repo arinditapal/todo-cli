@@ -13,7 +13,7 @@ This should install all the required dependencies from the pipfile in your worki
 You can start using the app by running the python file in app folder, app/main.py. Followed by a command that satisfies what you want to do.
 
 ```
-pipenv run python app/main.py < command >
+pipenv run python app/main.py <command>
 ```
 
 You can see the list of commands that you can use for interacting with the app.
@@ -36,19 +36,49 @@ The commands should appear in the value of "prositional argument".
     - Use this to update a todo, like updating the todo's status from incompleted to completed.
 
 ## Example
-This example will show how to add a new todo into the app. Run the following command
+0. To show all the todos 
+```shell
+$  pipenv run python app/main.py show
+id    title                priority   due-date   completed
+5     drink water           high        evening    ...
+7     walk                  high        to         finish
+13    buy milk              high        today      ...
+6     drive bike            medium      today      ...
+1     buy bread             low         today      finish
+3     make ice              low         today      ...
+10    got to party          low         today      ...
+12    walk                  low                    ...
 
 ```
-pipenv run python app/main.py add
-```
-Here "add" is the command for the app.
-> Pipenv is used to run the file inside of virtual environment without enter the virtual environment, so pipenv run is the command for that.
+1. To add a todo
 
-You may find the following prompts:
-```
-enter title: 
-enter priority: [ low, medium, high ]:
-enter due-date:
+```shell
+$  pipenv run python app/main.py add
+enter title: buy milk
+enter priority: [ low, medium, high ]: high
+enter due-date: today
 ```
 
-you can also user the other commands inplace of "add" command.
+2. To delete a todo
+```shell
+$  pipenv run python app/main.py delete
+Enter id of todo to delete: 4
+```
+
+3. To update a todo
+```shell
+$   pipenv run python app/main.py update
+
+Enter id to update: 13
+Do you want to change title??  [ y, n ]: n
+
+Do you want to change priority?? [ y, n ]: n
+
+Do you want to change due-date?? [ y, n ]: n
+
+Do you want to change completed?? [ y, n ]: y
+enter new completed:[ 0 - ongoing, 1 - finished ]: 1
+```
+<!-- link: [github](github.com)
+
+image: ![sparrow](https://imgs.search.brave.com/PubjYDNzvZol2CTrocTHJs6xHuUS9v9wyyx2uTBrpRo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTk0/NjM0MDE4L3Bob3Rv/L3NwYXJyb3cuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWto/RUNEd3J1TUxqaGFK/Z0ppWTdyNnZJZXpM/Ml9ITXBBaW42dlZT/elhtckk9) -->
